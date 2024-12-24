@@ -1,0 +1,27 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y <dependencies>
+
+      - name: Run Tests
+        run: |
+          <command-to-run-tests>
+
+      - name: Deploy
+        run: |
+          <command-to-deploy>
